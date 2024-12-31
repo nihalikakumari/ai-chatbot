@@ -1,0 +1,101 @@
+/* Sidebar.css */
+.Sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; /* Align the items to the left */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Sidebar Navigation Links */
+.NavLinks {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  flex-grow: 1; /* Allow the list to take up available space */
+}
+
+.NavLinks li {
+  margin: 15px 0;
+  transition: transform 0.3s ease; /* Add transition to the list item for scale effect */
+}
+
+/* Sidebar link styles */
+.NavLinks li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  display: block;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  border-radius: 8px;
+}
+
+/* Hover effect on the sidebar links */
+.NavLinks li a:hover {
+  background-color: var(--primary-color); /* Change background on hover */
+  color: var(--white-color); /* Change text color */
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+/* Hover effect on the entire list item */
+.NavLinks li:hover {
+  transform: scale(1.05); /* Slight zoom-in effect on the entire list item */
+}
+
+/* Active link state */
+.NavLinks li a.active {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-weight: bold;
+}
+
+/* Microphone icon positioning and animation */
+.MicrophoneIcon {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  animation: pulse 2s infinite;
+  margin-bottom: 20px; /* Add spacing between the icon and bottom */
+}
+
+/* Hover effect on microphone icon */
+.MicrophoneIcon:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Keyframes for pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Sidebar transitions */
+.Sidebar {
+  transition: all 0.3s ease; /* Smooth transition on all properties */
+}
+
+/* Add spacing between the links */
+.NavLinks li {
+  margin-bottom: 20px;
+}
+
+/* Responsive for smaller screens (optional) */
+@media (max-width: 768px) {
+  .Sidebar {
+    width: 100%;
+    padding: 15px;
+  }
+}

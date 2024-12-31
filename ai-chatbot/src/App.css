@@ -1,0 +1,205 @@
+/* App.css */
+.App {
+  display: flex;
+  flex-direction: column; /* Stack the header and main content vertically */
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background-size: 400% 400%; /* For gradient animation */
+  animation: gradientAnimation 10s ease infinite; /* Apply the animation */
+}
+
+.Header {
+  width: 100%;
+  background-color: var(--primary-color); /* Or your desired header color */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10; /* Ensure header stays above other elements */
+}
+
+.SidebarContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100vh - 80px); /* Leave space for the header */
+  margin-top: 80px; /* Push the sidebar below the header */
+}
+
+.Sidebar {
+  width: 250px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 20px;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: fixed; /* Fix sidebar to the left */
+  top: 80px; /* Position below the header */
+  bottom: 0;
+}
+
+.ChatWindow {
+  margin-left: 250px; /* Create space for the sidebar */
+  margin-top: 200px; /* Add space above the chat window */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 250px); /* Occupy the rest of the space */
+  max-height: calc(200vh - 80px); /* Limit the height of chat window to screen height minus header height */
+  overflow: auto; /* Allow scrolling if content exceeds the height */
+}
+
+.Messages {
+  flex: 1;
+  padding: 20px;
+  max-height: 70vh; /* Reduce height to fit better */
+  overflow-y: auto; /* Allow scrolling if messages overflow */
+}
+
+/* Chat Bubbles with Bounce-In Effect */
+.Message {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  animation: bounceIn 0.5s ease-out;
+}
+
+.UserMessage {
+  background-color: var(--primary-color);
+  color: white;
+  align-self: flex-end;
+}
+
+.BotMessage {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  align-self: flex-start;
+}
+
+/* Bounce-In Effect */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Typing Indicator (3 Dots Animation) */
+.typing-indicator {
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.typing-indicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 3px;
+  border-radius: 50%;
+  background-color: #888;
+  animation: typing 1.5s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes typing {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* User Input Field (Glowing Effect on Focus) */
+.InputArea input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 150, 255, 0.8);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Send Button (Size Increase on Hover) */
+.InputArea button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.InputArea button:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.1);
+}
+
+/* Data & Image Display (Fade-In and Zoom-In Effects) */
+.text-message {
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.image-message {
+  animation: zoomIn 1s ease-out;
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animated Gradient Background */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
